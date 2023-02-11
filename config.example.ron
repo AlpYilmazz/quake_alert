@@ -1,0 +1,17 @@
+ProgramConfig (
+    run_mode: Debug,
+    account: AlertAccount (
+        mail: "mail_address",
+        password: "mail_password",
+    ),
+    rule: AlertRule (
+        self_coord: Coord ( // Istanbul, Sisli
+            latitude: 41.0780,
+            longitude: 29.0040,
+        ),
+        search_radius_km_1: 300.0,
+        min_magnitude_1: 0.0,
+        search_radius_km_2: 400.0,
+        min_magnitude_2: 4.0,
+    ),
+)

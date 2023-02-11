@@ -1,7 +1,7 @@
-use std::{io::{BufReader, Read}, fs::File};
-
-use crate::util::Sink;
-
+use std::{
+    fs::File,
+    io::{BufReader, Read},
+};
 
 pub fn local_fetch_quake_data(path: &'static str) -> Result<String, ()> {
     let mut buf = String::new();

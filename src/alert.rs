@@ -54,7 +54,6 @@ impl Display for AlertContent {
 }
 
 pub fn send_alert_mail(alert_account: &AlertAccount, alerts: &[AlertContent]) {
-    // dbg!(alerts);
     const SUBJECT: &'static str = "YAKIN <TEST> DEPREM";
 
     let (user, domain) = alert_account.mail.split_once('@').unwrap();
@@ -74,6 +73,8 @@ pub fn send_alert_mail(alert_account: &AlertAccount, alerts: &[AlertContent]) {
         content += &"--------------------\n";
     }
     let content = content;
+
+    #[cfg(debug_assertions)]
     println!("{}\n", &content);
 
     let email = Message::builder()
@@ -85,7 +86,10 @@ pub fn send_alert_mail(alert_account: &AlertAccount, alerts: &[AlertContent]) {
 
     if !ProgramConfig::get().run_mode.is_debug() {
         // Send the email
-        match mailer.send(&email) {
+        let result = mailer.send(&email);
+        
+        #[cfg(debug_assertions)]
+        match result {
             Ok(_) => println!("Email sent successfully!"),
             Err(e) => println!("Could not send email: {:?}", e),
         }

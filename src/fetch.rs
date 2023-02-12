@@ -33,7 +33,7 @@ pub fn remote_fetch_quake_data(url: &'static str) -> Result<String, ()> {
 }
 
 pub enum Source {
-    Local(&'static str),
+    Local(&'static str), // Path
     Remote(&'static str), // URL
 }
 

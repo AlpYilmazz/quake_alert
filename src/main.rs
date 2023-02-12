@@ -38,8 +38,12 @@ fn execute_single(last_quake: &mut LastQuake, source: Source) {
         .collect::<Vec<_>>();
 
     if alert_quakes.is_empty() {
+        #[cfg(debug_assertions)]
+        println!("No quakes to alert");
         return;
     }
+    #[cfg(debug_assertions)]
+    println!("There are some quakes to alert");
 
     let alerts = alert_quakes
         .iter()
@@ -64,12 +68,13 @@ fn main() {
 
     let mut last_quake = LastQuake::load(CACHE_PATH);
 
-    dbg!(&last_quake.0);
-
-    execute_single(
-        &mut last_quake,
-        // Source::Local(_LOCAL_DATA_PATH),
-        Source::Remote(_REMOTE_DATA_URL),
-    );
-    let _ = last_quake.save(CACHE_PATH);
+    loop {
+        execute_single(
+            &mut last_quake,
+            // Source::Local(_LOCAL_DATA_PATH),
+            Source::Remote(_REMOTE_DATA_URL),
+        );
+        let _ = last_quake.save(CACHE_PATH);
+        std::thread::sleep(std::time::Duration::from_secs(10));
+    }
 }

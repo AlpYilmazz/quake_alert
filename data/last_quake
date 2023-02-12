@@ -1,1 +1,1 @@
-Some((date:"2023.02.12",time:"00:20:57",coord:(latitude:37.2185,longitude:37.105),depth:Some(22.8),magnitude:(md:None,ml:3.1,mw:None),location:"ESKISARKAYA-SEHITKAMIL (GAZIANTEP)",metadata:"�lksel"))
+Some((date:"2023.02.12",time:"02:15:15",coord:(latitude:37.2838,longitude:37.0262),depth:Some(5.3),magnitude:(md:None,ml:2.7,mw:None),location:"AKDEMIR-PAZARCIK (KAHRAMANMARAS)",metadata:"�lksel"))

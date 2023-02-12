@@ -5,7 +5,7 @@ ProgramConfig (
         password: "mail_password",
     ),
     rule: AlertRule (
-        self_coord: Coord ( // Istanbul, Sisli
+        origin: Coord ( // Istanbul, Sisli
             latitude: 41.0780,
             longitude: 29.0040,
         ),

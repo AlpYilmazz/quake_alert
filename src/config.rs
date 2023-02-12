@@ -59,7 +59,7 @@ pub struct AlertAccount {
 
 #[derive(Serialize, Deserialize)]
 pub struct AlertRule {
-    pub self_coord: Coord,
+    pub origin: Coord,
     pub search_radius_km_1: f64,
     pub min_magnitude_1: f32,
     pub search_radius_km_2: f64,

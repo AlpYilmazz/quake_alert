@@ -14,7 +14,7 @@ use crate::{
 pub fn matches_alert_rule(alert_rule: &AlertRule, quake_data: &QuakeData) -> bool {
     let quake_mag = quake_data.magnitude.get_main();
 
-    let dist = earth_dist_km(alert_rule.self_coord, quake_data.coord);
+    let dist = earth_dist_km(alert_rule.origin, quake_data.coord);
     let min_magnitude = if dist <= alert_rule.search_radius_km_1 {
         alert_rule.min_magnitude_1
     } else if dist <= alert_rule.search_radius_km_2 {
